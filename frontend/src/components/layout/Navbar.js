@@ -9,16 +9,23 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 
   const authLinks = (
     <ul>
-      {/* <li>
-        <Link to="/contact">Contact</Link>
-      </li> */}
+      
+      <li>
+        <Link
+          to="/posts"
+          className={location.pathname === "/postss" ? "current" : ""}
+        >
+          <i className="fa fa-comments" />{" "}
+          <span className="hide-sm">Discussion</span>
+        </Link>
+      </li>
 
       <li>
         <Link
           to="/profiles"
           className={location.pathname === "/profiles" ? "current" : ""}
         >
-          <i className="fas fa-user" />{" "}
+          <i className="fa fa-cubes" />{" "}
           <span className="hide-sm">Profiles</span>
         </Link>
       </li>
