@@ -15,6 +15,16 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 
       <li>
         <Link
+          to="/profiles"
+          className={location.pathname === "/profiles" ? "current" : ""}
+        >
+          <i className="fas fa-user" />{" "}
+          <span className="hide-sm">Profiles</span>
+        </Link>
+      </li>
+
+      <li>
+        <Link
           to="/dashboard"
           className={location.pathname === "/dashboard" ? "current" : ""}
         >
@@ -34,6 +44,14 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 
   const guestLinks = (
     <ul>
+      <li>
+        <Link
+          to="/profiles"
+          className={location.pathname === "/profiles" ? "current" : ""}
+        >
+          Profiles
+        </Link>
+      </li>
       <li>
         <Link
           to="/contact"
