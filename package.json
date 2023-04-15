@@ -23,6 +23,7 @@
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.3",
     "morgan": "^1.10.0",
+    "path": "^0.12.7",
     "portscanner": "^2.2.0",
     "redux-devtools-extension": "^2.13.9",
     "slugify": "^1.6.6",
