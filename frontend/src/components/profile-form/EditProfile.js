@@ -78,13 +78,12 @@ const ProfileForm = ({
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmit = (e) => {
-    const editing = profile ? true : false;
-    e.preventDefault();
-    createProfile(formData, editing).then(() => {
-      if (!editing) navigate('/dashboard');
-    });
-  };
+    const onSubmit = e => {
+      const editing = profile ? true : false
+      e.preventDefault();
+      createProfile(formData, editing, true);
+      setTimeout(() => navigate("/dashboard"), 1000);
+    };
 
   return (
     <section className="container">

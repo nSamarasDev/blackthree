@@ -25,7 +25,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
           to="/profiles"
           className={location.pathname === "/profiles" ? "current" : ""}
         >
-          <i className="fa fa-cubes" />{" "}
+          <i className="fa fa-address-card-o" />{" "}
           <span className="hide-sm">Profiles</span>
         </Link>
       </li>
@@ -56,6 +56,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
           to="/profiles"
           className={location.pathname === "/profiles" ? "current" : ""}
         >
+          <i className="fa fa-address-card-o" />{" "}
           Profiles
         </Link>
       </li>
@@ -64,6 +65,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
           to="/contact"
           className={location.pathname === "/contact" ? "current" : ""}
         >
+          <i className="fa fa-envelope-o" />{" "}
           Contact
         </Link>
       </li>
@@ -72,6 +74,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
           to="/register"
           className={location.pathname === "/register" ? "current" : ""}
         >
+          <i className="	fa fa-thumb-tack" />{" "}
           Register
         </Link>
       </li>
@@ -80,6 +83,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
           to="/login"
           className={location.pathname === "/login" ? "current" : ""}
         >
+          <i className="fa fa-code-fork" />{" "}
           Login
         </Link>
       </li>

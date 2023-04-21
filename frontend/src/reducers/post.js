@@ -16,7 +16,7 @@ import {
     error: {},
   };
   
-  export default function (state = initialState, action) {
+  export default function reduce (state = initialState, action) {
     const { type, payload } = action;
   
     switch (type) {
@@ -44,9 +44,8 @@ import {
           posts: state.posts.filter((post) => post._id !== payload),
           loading: false,
         };
-    }
-    switch (type) {
-      case POST_ERROR:
+
+        case POST_ERROR:
         return {
           ...state,
           error: payload,
@@ -80,5 +79,6 @@ import {
       default:
         return state;
     }
+    
   }
   

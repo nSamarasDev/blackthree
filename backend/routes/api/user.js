@@ -76,10 +76,10 @@ router.post(
         //   res.json({ token });
         // }
 
-        (err, token) => {
+        (err, custom) => {
           if (err) throw err;
-          res.cookie("token", token, { maxAge: 360000 }); // set token as cookie with expiration time
-          res.json({ token });
+          res.cookie("custom", custom, { maxAge: 360000, secure: true, sameSite: 'strict' }); // set token as cookie with expiration time
+          res.json({ custom });
         }
       );
     } catch (err) {

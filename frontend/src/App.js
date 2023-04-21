@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { store } from "./app/store";
 import { loadUser } from "./actions/auth";
+import Cookies from 'js-cookie'
 import setAuthToken from "./utils/setAuthToken";
 import PrivateRoute from "./components/routing/PrivateRoute";
 import Navbar from './components/layout/Navbar'
@@ -20,8 +21,10 @@ import Profile from './components/profile/Profile'
 import Posts from './components/posts/Posts';
 import Post from './components/post/Post';
 
-if (localStorage.token) {
-  setAuthToken(localStorage.token);
+const token = Cookies.get('token');
+
+if (token) {
+  setAuthToken(token);
 }
 
 const App = () => {

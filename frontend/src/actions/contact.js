@@ -4,7 +4,6 @@ import { setAlert } from "./alert";
 import {
   GET_CONTACT,
   CONTACT_ERROR,
-  UPDATE_CONTACT,
   CLEAR_CONTACTS,
   GET_CONTACTS,
   ACCOUNT_DELETED,
