@@ -274,4 +274,25 @@ router.get("/github/:username", async (req, res) => {
     }
   });
 
+  
+// @route    DELETE api/profile/:_id
+// @desc     Delete profile by profile id
+// @access   Private
+router.delete("/:id", async (req, res) => {
+  try {
+    const profile = await Profile.findById(req.params.id);
+
+    if (!profile) {
+      return res.status(404).json({ msg: "Profile not found" });
+    }
+
+    await profile.deleteOne();
+
+    res.json({ msg: "Profile deleted" });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Server Error");
+  }
+});
+
 module.exports = router;
