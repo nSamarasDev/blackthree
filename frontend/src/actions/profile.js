@@ -9,6 +9,7 @@ import {
   UPDATE_PROFILE,
   CLEAR_PROFILE,
   ACCOUNT_DELETED,
+  DELETE_PROFILE,
 } from "./types";
 
 // Get current users profile
@@ -271,6 +272,29 @@ export const deleteAccount = () => async (dispatch) => {
       });
 
       dispatch(setAlert("Your account has been permaanetly deleted"));
+    } catch (error) {
+      dispatch({
+        type: PROFILE_ERROR,
+        payload: {
+          msg: error.response.statusText,
+          status: error.response.status,
+        },
+      });
+    }
+  }
+};
+
+export const deleteProfile = (id) => async (dispatch) => {
+  if (window.confirm("Are you sure? This cannot be undone")) {
+    try {
+      await axios.delete(`/api/profile/${id}`);
+
+      dispatch({
+        type: DELETE_PROFILE,
+        payload: id,
+      });
+
+      dispatch(setAlert("Contact deleted", "success"));
     } catch (error) {
       dispatch({
         type: PROFILE_ERROR,

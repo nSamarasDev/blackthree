@@ -1,7 +1,7 @@
 import React, { useEffect, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Spinner from '../layout/Spinner'
 import DashboardActions from './DashboardActions'
 import { getCurrentProfile, deleteAccount } from '../../actions/profile'
@@ -16,9 +16,16 @@ const Dashboard = ({
     auth: { user },
     profile: { profile, loading },
 }) => {
-    useEffect(() => {
-        getCurrentProfile()
-    }, [getCurrentProfile]);
+
+  const navigate = useNavigate()
+
+
+  useEffect(() => {
+    getCurrentProfile();
+    if (user && user.isAdmin === true) {
+      navigate('/admin');
+    }
+  }, [getCurrentProfile, user, navigate]);
     return loading && profile === null ? (
         <Spinner />
     ) : (

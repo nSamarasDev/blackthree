@@ -16,6 +16,8 @@ import EditProfile from "./components/profile-form/EditProfile";
 import AddExperience from "./components/profile-form/AddExperience";
 import AddEducation from "./components/profile-form/AddEducation";
 import Dashboard from "./components/dashboard/Dashboard";
+import AdminDashboard from "./components/admin/AdminDashboard";
+import ContactView from './components/admin/ContactView'
 import Profiles from './components/profiles/Profiles'
 import Profile from './components/profile/Profile'
 import Posts from './components/posts/Posts';
@@ -73,6 +75,16 @@ const App = () => {
     />
 
     <Route path='/post/:id' element={<PrivateRoute component={Post} />} />
+
+    <Route /////////////  Admin Routes  ////////////////
+          path='/admin'
+          element={<PrivateRoute component={AdminDashboard} />}
+    />
+
+     <Route
+          path="/contact/:id"
+          element={<PrivateRoute component={ContactView} />}
+    />
     </Routes>
   <Navbar />
   

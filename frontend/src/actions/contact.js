@@ -6,7 +6,7 @@ import {
   CONTACT_ERROR,
   CLEAR_CONTACTS,
   GET_CONTACTS,
-  ACCOUNT_DELETED,
+  DELETE_CONTACT,
 } from "./types";
 
 export const getCurrentContact = () => async (dispatch) => {
@@ -53,9 +53,9 @@ export const getContacts = () => async (dispatch) => {
 };
 
 // Get contact by id
-export const getContactById = (userId) => async (dispatch) => {
+export const getContactById = (_id) => async (dispatch) => {
   try {
-    const res = await axios.get(`/api/contact/user/${userId}`);
+    const res = await axios.get(`/api/contact/${_id}`);
 
     dispatch({
       type: GET_CONTACT,
@@ -134,22 +134,19 @@ export const getProfileById = (userId) => async (dispatch) => {
   }
 };
 
-// DELETE Account and Contact
+// DELETE  and Contact
 // Delete Education
-export const deleteAccount = () => async (dispatch) => {
+export const deleteContact = (id) => async (dispatch) => {
   if (window.confirm("Are you sure? This cannot be undone")) {
     try {
-      await axios.delete("/api/contact");
+      await axios.delete(`/api/contact/${id}`);
 
       dispatch({
-        type: CLEAR_CONTACTS,
+        type: DELETE_CONTACT,
+        payload: id,
       });
 
-      dispatch({
-        type: ACCOUNT_DELETED,
-      });
-
-      dispatch(setAlert("Your account has been permaanetly deleted"));
+      dispatch(setAlert("Contact deleted", "success"));
     } catch (error) {
       dispatch({
         type: CONTACT_ERROR,

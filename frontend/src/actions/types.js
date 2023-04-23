@@ -6,6 +6,7 @@ export const REGISTER_FAIL = "REGISTER_FAIL";
 export const USER_LOADED = "USER_LOADED";
 export const AUTH_ERROR = "AUTH_ERROR";
 
+export const DELETE_CONTACT = "DELETE_CONTACT";
 export const GET_CONTACT = "GET_CONTACT";
 export const GET_CONTACTS = "GET_CONTACTS";
 export const CLEAR_CONTACTS = "CLEAR_CONTACTS";
@@ -19,6 +20,7 @@ export const CLEAR_PROFILE = "CLEAR_PROFILE";
 export const CLEAR_APPLICATION = "CLEAR_APPLICATION";
 
 export const GET_PROFILE = "GET_PROFILE";
+export const DELETE_PROFILE = "DELETE_PROFILE";
 export const GET_PROFILES = "GET_PROFILES";
 export const UPDATE_PROFILE = "UPDATE_PROFILE";
 export const GET_REPOS = "GET_REPOS";

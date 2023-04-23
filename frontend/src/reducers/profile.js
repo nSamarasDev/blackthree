@@ -5,6 +5,7 @@ import {
     PROFILE_ERROR,
     CLEAR_PROFILE,
     UPDATE_PROFILE,
+    DELETE_PROFILE,
   } from "../actions/types";
   
   const initialState = {
@@ -46,6 +47,12 @@ import {
           repos: [],
           loading: false,
         };
+        case DELETE_PROFILE:
+       return {
+        ...state,
+        profiles: state.profiles.filter((profile) => profile._id !== payload),
+        loading: false,
+      };
       case GET_REPOS:
         return {
           ...state,
