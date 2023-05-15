@@ -4,6 +4,7 @@ import auth from "../reducers/auth";
 import contact from "../reducers/contact";
 import profile from "../reducers/profile";
 import post from "../reducers/post";
+import article from "../reducers/article";
 
 export const store = configureStore({
   reducer: {
@@ -12,5 +13,6 @@ export const store = configureStore({
     contact,
     profile,
     post,
+    article,
   },
 });

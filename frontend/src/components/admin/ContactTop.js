@@ -12,13 +12,15 @@ const ContactTop = ({
       },
 }) => {
   return (
+    <div className='post-text'>
     <div className='post-text bg-dark p-1 my-1'>
       <p className='post-date'>Posted {date ? formatDate(date) : 'Now'}</p>
       <p>{email && <span>{email}</span>}</p>
       <p>{name}</p>
       <p>{description}</p>
-      <p style={{textAlign: 'right'}}>{alt_id}</p>
-      <p style={{textAlign: 'right'}}>{resource_id}</p>
+      <p style={{textAlign: 'left'}}>{alt_id}</p>
+      <p style={{textAlign: 'left'}}>{resource_id}</p>
+    </div>
     </div>
   )
 }

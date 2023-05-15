@@ -3,24 +3,26 @@ import PropTypes from 'prop-types'
 import { useParams, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Spinner from '../layout/Spinner'
-import { getContactById } from '../../actions/contact'
-import ContactTop from './ContactTop'
+import { getArticleById } from '../../actions/article'
+import ArticleTop from './ArticleTop'
+import ArticleView from './ArticleView'
 
-const ContactView = ({
-    getContactById,
-    contact: { contact, loading },
-    auth
+const Article = ({
+    getArticleById,
+    article: { article, loading },
+    auth,
 }) => {
 
     const { id } = useParams()
 
     useEffect(() => {
-        getContactById(id);
-    }, [getContactById, id])
+        getArticleById(id);
+    }, [getArticleById, id])
+
   return (
     <>
      <section className='container'>
-        {contact === null || loading ? (
+        {article === null || loading ? (
             <Spinner />
         ) : (
             <Fragment>
@@ -29,14 +31,15 @@ const ContactView = ({
                 </Link>
                 {auth.isAuthenticated &&
                 auth.loading === false &&
-                auth.user._id === contact._id && (
-              <Link to='/edit-contact' className='btn btn-dark'>
-                Edit Contact
+               auth.user._id === article.user._id && (
+              <Link to='/edit-profile' className='btn btn-dark'>
+                Edit Article
               </Link>
             )}
 
           <div>
-            <ContactTop contact={contact} />
+            <ArticleTop article={article} />
+            <ArticleView article={article} />
           </div>
             </Fragment>
         )}   
@@ -45,15 +48,15 @@ const ContactView = ({
   )
 }
 
-ContactView.propTypes = {
-    getContactById: PropTypes.func.isRequired,
-    contact: PropTypes.object.isRequired,
+Article.propTypes = {
+    getArticleById: PropTypes.func.isRequired,
+    article: PropTypes.object.isRequired,
     auth: PropTypes.object.isRequired,
 }
 
 const mapStateToProps = (state) => ({
-    contact: state.contact,
+    article: state.article,
     auth: state.auth,
   });
 
-export default connect(mapStateToProps, { getContactById })(ContactView)
+export default connect(mapStateToProps, { getArticleById })(Article)

@@ -17,11 +17,14 @@ import AddExperience from "./components/profile-form/AddExperience";
 import AddEducation from "./components/profile-form/AddEducation";
 import Dashboard from "./components/dashboard/Dashboard";
 import AdminDashboard from "./components/admin/AdminDashboard";
+import QuantumDashboard from "./components/quantum/QuantumDashboard";
 import ContactView from './components/admin/ContactView'
 import Profiles from './components/profiles/Profiles'
 import Profile from './components/profile/Profile'
 import Posts from './components/posts/Posts';
 import Post from './components/post/Post';
+import CreateArticle from "./components/articles/CreateArticle";
+import Article from "./components/articles/Article";
 
 const token = Cookies.get('token');
 
@@ -73,8 +76,12 @@ const App = () => {
           path='/posts'
           element={<PrivateRoute component={Posts} />}
     />
+    <Route 
+          path='/post/:id'
+          element={<PrivateRoute component={Post} />}
+    />
 
-    <Route path='/post/:id' element={<PrivateRoute component={Post} />} />
+  
 
     <Route /////////////  Admin Routes  ////////////////
           path='/admin'
@@ -85,6 +92,21 @@ const App = () => {
           path="/contact/:id"
           element={<PrivateRoute component={ContactView} />}
     />
+
+      <Route /////////////  Article Routes  ////////////////
+          path='/article'
+          element={<PrivateRoute component={CreateArticle} />}
+    />
+
+     <Route
+          path="/article/:id"
+          element={<PrivateRoute component={Article} />}
+      /> 
+
+      <Route /////////////  Quantum Routes  ////////////////
+          path='/qiskit'
+          element={<PrivateRoute component={QuantumDashboard} />}
+    /> 
     </Routes>
   <Navbar />
   

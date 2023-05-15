@@ -5,23 +5,28 @@ import Spinner from "../layout/Spinner";
 import Alert from "../layout/Alert";
 import { getProfiles } from "../../actions/profile";
 import { getContacts } from "../../actions/contact";
+import { getArticles } from "../../actions/article";
 import AdminActions from "./AdminActions";
 import ProfileItem from "./ProfileItem";
 import ContactItem from "./ContactItem";
+import ArticleItem from "./ArticleItem";
 
 
 
 const AdminDashboard = ({
   getProfiles,
   getContacts,
+  getArticles,
   auth: { user },
   profile: { profiles, loading },
   contact: { contacts, loading: contactLoading },
+  article: { articles, loading: articleLoading },
 }) => {
   useEffect(() => {
     getProfiles();
     getContacts();
-  }, [getProfiles, getContacts]);
+    getArticles();
+  }, [getProfiles, getContacts, getArticles]);
 
   return loading || !contacts ? (
     <Spinner />
@@ -73,7 +78,7 @@ const AdminDashboard = ({
           <h1 className="large text-dark" style={{ paddingTop: "50px" }}>
             Contact list
           </h1>
-          <table className="table" style={{ paddingTop: "10px" }}>
+          <table className="table" style={{ paddingTop: "10px", paddingBottom: '40px' }}>
             <thead>
               <tr>
                 <th>Name</th>
@@ -98,6 +103,35 @@ const AdminDashboard = ({
               )}
             </tbody>
           </table>
+          <hr />
+          <h1 className="large text-dark" style={{ paddingTop: "50px" }}>
+            Article list
+          </h1>
+          <table className="table" style={{ paddingTop: "10px" }}>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th className="hide-sm">Article Title</th>
+                <th className="hide-sm">ID</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody
+              className="dashboard-table-body tr"
+              style={{ backgroundColor: "#333", color: "#fff" }}
+            >
+              {articles.length > 0 ? (
+                articles.map((article) => (
+                  <ArticleItem key={article._id} article={article} />
+                ))
+              ) : (
+                <tr>
+                  <td>No articles found</td>
+                </tr>
+              )}
+            </tbody>
+          </table>
         </section>
       </section>
     </>
@@ -107,15 +141,18 @@ const AdminDashboard = ({
 AdminDashboard.propTypes = {
     getProfiles: PropTypes.func.isRequired,
     getContacts: PropTypes.func.isRequired,
+    getArticles: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
     profile: PropTypes.object.isRequired,
     contact: PropTypes.object.isRequired,
+    article: PropTypes.object.isRequired,
   };
   
   const mapStateToProps = (state) => ({
     auth: state.auth,
     profile: state.profile,
     contact: state.contact,
+    article: state.article,
   });
   
-  export default connect(mapStateToProps, { getProfiles, getContacts } )(AdminDashboard)
+  export default connect(mapStateToProps, { getProfiles, getContacts, getArticles } )(AdminDashboard)

@@ -13,6 +13,12 @@ const AdminActions = () => {
       <Link to="/add-education" className="btn btn-primary">
         Add Education
       </Link>
+      <Link to="/article" className="btn btn-primary">
+        Write your article
+      </Link>
+      <Link to="/qiskit" className="btn btn-primary">
+        Quantum Dashboard
+      </Link>
       
     </div>
   );

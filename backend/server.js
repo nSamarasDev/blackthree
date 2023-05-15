@@ -28,6 +28,7 @@ app.use("/api/auth", require("./routes/api/auth"));
 app.use("/api/contact", require("./routes/api/contact"));
 app.use("/api/profile", require("./routes/api/profile"));
 app.use("/api/posts", require("./routes/api/post"));
+app.use("/api/article", require("./routes/api/article"));
 
 
 // Serve frontend

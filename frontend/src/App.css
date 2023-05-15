@@ -56,7 +56,7 @@
   }
   
   .dashboard-container {
-    background-color: rgb(146, 144, 144);
+    background-color: rgb(144, 143, 143);
     padding: 2rem;
     margin: 2rem auto;
     border-radius: 10px;
@@ -77,16 +77,7 @@
     font-weight: 700;
     color: var(--primary-color)
   }
-  
-  .admin-container .clock {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    text-align: right;
 
-  }
-
-  
   /* Text Styles*/
   .x-large {
     font-size: 4rem;
@@ -434,16 +425,6 @@
     justify-content: center;
     text-align: center;
   }
-  
-  /* .profile2-top {
-    grid-area: top;
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    justify-content: left;
-    text-align: left;
-  } */
-
   .icons {
     display: flex;
     justify-content: space-between;
@@ -466,6 +447,11 @@
   .profile-about {
     grid-area: about;
     text-align: center;
+  }
+
+  .profile-about2 {
+    grid-area: about;
+    text-align: left;
   }
   
   .profile-about .skills {
