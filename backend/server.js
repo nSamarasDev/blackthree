@@ -29,6 +29,8 @@ app.use("/api/contact", require("./routes/api/contact"));
 app.use("/api/profile", require("./routes/api/profile"));
 app.use("/api/posts", require("./routes/api/post"));
 app.use("/api/article", require("./routes/api/article"));
+app.use("/api/particle", require("./routes/api/particle"));
+
 
 
 // Serve frontend
